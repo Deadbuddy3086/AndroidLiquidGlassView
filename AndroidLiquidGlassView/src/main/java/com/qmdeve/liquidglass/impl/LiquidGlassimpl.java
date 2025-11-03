@@ -59,9 +59,12 @@ public final class LiquidGlassimpl implements Impl {
     private boolean needsUpdate = true;
     private long lastBlurUpdateTime = 0;
 
-    public LiquidGlassimpl(View host, View target) {
+    private final Config config;
+
+    public LiquidGlassimpl(View host, View target, Config config) {
         this.host = host;
         this.target = target;
+        this.config = config;
         this.node = new RenderNode("AndroidLiquidGlassView");
         this.refractionShader = loadAgsl(target.getResources(), R.raw.liquidglass_refraction_effect);
         this.materialShader = loadAgsl(target.getResources(), R.raw.liquidglass_material_effect);
@@ -98,20 +101,20 @@ public final class LiquidGlassimpl implements Impl {
     public void onPreDraw() {
         record();
 
-        float cornerRadius = Config.CORNER_RADIUS_PX;
-        float eccentricFactor = Config.ECCENTRIC_FACTOR;
-        float refractionHeight = Config.REFRACTION_HEIGHT;
-        float refractionAmount = Config.REFRACTION_OFFSET;
-        float contrast = Config.CONTRAST;
-        float whitePoint = Config.WHITE_POINT;
-        float chromaMultiplier = Config.CHROMA_MULTIPLIER;
-        float blurLevel = Config.BLUR_RADIUS;
-        float chromaticAberration = Config.DISPERSION;
-        float depthEffect = Config.DEPTH_EFFECT;
-        float tintRed = Config.TINT_COLOR_RED;
-        float tintGreen = Config.TINT_COLOR_GREEN;
-        float tintBlue = Config.TINT_COLOR_BLUE;
-        float tintAlpha = Config.TINT_ALPHA;
+        float cornerRadius = config.CORNER_RADIUS_PX;
+        float eccentricFactor = config.ECCENTRIC_FACTOR;
+        float refractionHeight = config.REFRACTION_HEIGHT;
+        float refractionAmount = config.REFRACTION_OFFSET;
+        float contrast = config.CONTRAST;
+        float whitePoint = config.WHITE_POINT;
+        float chromaMultiplier = config.CHROMA_MULTIPLIER;
+        float blurLevel = config.BLUR_RADIUS;
+        float chromaticAberration = config.DISPERSION;
+        float depthEffect = config.DEPTH_EFFECT;
+        float tintRed = config.TINT_COLOR_RED;
+        float tintGreen = config.TINT_COLOR_GREEN;
+        float tintBlue = config.TINT_COLOR_BLUE;
+        float tintAlpha = config.TINT_ALPHA;
 
         boolean paramsChanged =
                 lastCornerRadius != cornerRadius ||
@@ -173,21 +176,21 @@ public final class LiquidGlassimpl implements Impl {
         int height = target.getHeight();
         if (width == 0 || height == 0) return;
 
-        float cornerRadiusPx = Config.CORNER_RADIUS_PX;
-        float eccentricFactor = Config.ECCENTRIC_FACTOR;
-        float refractionHeight = Config.REFRACTION_HEIGHT;
-        float refractionAmount = Config.REFRACTION_OFFSET;
-        float contrast = Config.CONTRAST;
-        float whitePoint = Config.WHITE_POINT;
-        float chromaMultiplier = Config.CHROMA_MULTIPLIER;
-        float blurLevel = Math.max(0f, Config.BLUR_RADIUS);
-        float chromaticAberration = Config.DISPERSION;
-        float depthEffect = Config.DEPTH_EFFECT;
-        float tintRed = Config.TINT_COLOR_RED;
-        float tintGreen = Config.TINT_COLOR_GREEN;
-        float tintBlue = Config.TINT_COLOR_BLUE;
-        float tintAlpha = Config.TINT_ALPHA;
-        float[] size = new float[]{Config.WIDTH, Config.HEIGHT};
+        float cornerRadiusPx = config.CORNER_RADIUS_PX;
+        float eccentricFactor = config.ECCENTRIC_FACTOR;
+        float refractionHeight = config.REFRACTION_HEIGHT;
+        float refractionAmount = config.REFRACTION_OFFSET;
+        float contrast = config.CONTRAST;
+        float whitePoint = config.WHITE_POINT;
+        float chromaMultiplier = config.CHROMA_MULTIPLIER;
+        float blurLevel = Math.max(0f, config.BLUR_RADIUS);
+        float chromaticAberration = config.DISPERSION;
+        float depthEffect = config.DEPTH_EFFECT;
+        float tintRed = config.TINT_COLOR_RED;
+        float tintGreen = config.TINT_COLOR_GREEN;
+        float tintBlue = config.TINT_COLOR_BLUE;
+        float tintAlpha = config.TINT_ALPHA;
+        float[] size = new float[]{config.WIDTH, config.HEIGHT};
         float[] offset = new float[]{0f, 0f};
         float[] cornerRadii = new float[]{
                 cornerRadiusPx, cornerRadiusPx, cornerRadiusPx, cornerRadiusPx

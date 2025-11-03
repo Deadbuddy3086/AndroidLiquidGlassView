@@ -40,6 +40,7 @@ public class LiquidGlass extends FrameLayout {
     private Impl impl;
     private View target;
     private boolean listenerAdded = false;
+    private final Config config;
 
     private static class PreDrawListener implements ViewTreeObserver.OnPreDrawListener {
         private final WeakReference<LiquidGlass> liquidGlassRef;
@@ -73,9 +74,10 @@ public class LiquidGlass extends FrameLayout {
 
     private final PreDrawListener preDrawListener = new PreDrawListener(this);
 
-    public LiquidGlass(Context c) {
+    public LiquidGlass(Context c, Config config) {
         super(c);
         setLayerType(LAYER_TYPE_HARDWARE, null);
+        this.config = config;
         init();
     }
 
@@ -85,7 +87,7 @@ public class LiquidGlass extends FrameLayout {
         this.target = target;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            impl = new LiquidGlassimpl(this, target);
+            impl = new LiquidGlassimpl(this, target, config);
             addPreDrawListener();
             requestLayout();
             invalidate();
@@ -114,8 +116,8 @@ public class LiquidGlass extends FrameLayout {
     }
 
     private void updateOutlineProvider() {
-        if (Config.CORNER_RADIUS_PX > 0) {
-            setOutlineProvider(new RoundRectOutlineProvider(Config.CORNER_RADIUS_PX));
+        if (config.CORNER_RADIUS_PX > 0) {
+            setOutlineProvider(new RoundRectOutlineProvider(config.CORNER_RADIUS_PX));
             setClipToOutline(true);
             invalidateOutline();
         } else {

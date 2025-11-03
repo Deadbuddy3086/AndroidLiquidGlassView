@@ -23,20 +23,20 @@ package com.qmdeve.liquidglass;
 import androidx.annotation.Nullable;
 
 public class Config {
-    public static float DISPERSION, DEPTH_EFFECT = 0.3f;
-    public static int WIDTH, HEIGHT;
-    public static volatile float CORNER_RADIUS_PX;
-    public static volatile float ECCENTRIC_FACTOR = 1.0f;
-    public static volatile float REFRACTION_HEIGHT;
-    public static volatile float REFRACTION_OFFSET;
-    public static volatile float CONTRAST;
-    public static volatile float WHITE_POINT;
-    public static volatile float CHROMA_MULTIPLIER;
-    public static volatile float BLUR_RADIUS;
-    public static float TINT_ALPHA, TINT_COLOR_RED, TINT_COLOR_GREEN, TINT_COLOR_BLUE;
+    public float DISPERSION, DEPTH_EFFECT = 0.3f;
+    public int WIDTH, HEIGHT;
+    public volatile float CORNER_RADIUS_PX;
+    public volatile float ECCENTRIC_FACTOR = 1.0f;
+    public volatile float REFRACTION_HEIGHT;
+    public volatile float REFRACTION_OFFSET;
+    public volatile float CONTRAST;
+    public volatile float WHITE_POINT;
+    public volatile float CHROMA_MULTIPLIER;
+    public volatile float BLUR_RADIUS;
+    public float TINT_ALPHA, TINT_COLOR_RED, TINT_COLOR_GREEN, TINT_COLOR_BLUE;
 
-    public static void configure(@Nullable Overrides overrides) {
-        if (overrides != null) overrides.apply();
+    public void configure(@Nullable Overrides overrides) {
+        if (overrides != null) overrides.apply(this);
     }
 
     public static final class Overrides {
@@ -120,21 +120,21 @@ public class Config {
             return this;
         }
 
-        void apply() {
-            if (cornerRadius != null) CORNER_RADIUS_PX = cornerRadius;
-            if (refractionHeight != null) REFRACTION_HEIGHT = refractionHeight;
-            if (refractionOffset != null) REFRACTION_OFFSET = refractionOffset;
-            if (contrast != null) CONTRAST = contrast;
-            if (whitePoint != null) WHITE_POINT = whitePoint;
-            if (chromaMultiplier != null) CHROMA_MULTIPLIER = chromaMultiplier;
-            if (blurRadius != null) BLUR_RADIUS = blurRadius;
-            if (width != null) WIDTH = width;
-            if (height != null) HEIGHT = height;
-            if (tintAlpha != null) TINT_ALPHA = tintAlpha;
-            if (tintColorRed != null) TINT_COLOR_RED = tintColorRed;
-            if (tintColorGreen != null) TINT_COLOR_GREEN = tintColorGreen;
-            if (tintColorBlue != null) TINT_COLOR_BLUE = tintColorBlue;
-            if (dispersion != null) DISPERSION = dispersion;
+        void apply(Config c) {
+            if (cornerRadius != null) c.CORNER_RADIUS_PX = cornerRadius;
+            if (refractionHeight != null) c.REFRACTION_HEIGHT = refractionHeight;
+            if (refractionOffset != null) c.REFRACTION_OFFSET = refractionOffset;
+            if (contrast != null) c.CONTRAST = contrast;
+            if (whitePoint != null) c.WHITE_POINT = whitePoint;
+            if (chromaMultiplier != null) c.CHROMA_MULTIPLIER = chromaMultiplier;
+            if (blurRadius != null) c.BLUR_RADIUS = blurRadius;
+            if (width != null) c.WIDTH = width;
+            if (height != null) c.HEIGHT = height;
+            if (tintAlpha != null) c.TINT_ALPHA = tintAlpha;
+            if (tintColorRed != null) c.TINT_COLOR_RED = tintColorRed;
+            if (tintColorGreen != null) c.TINT_COLOR_GREEN = tintColorGreen;
+            if (tintColorBlue != null) c.TINT_COLOR_BLUE = tintColorBlue;
+            if (dispersion != null) c.DISPERSION = dispersion;
         }
     }
 }

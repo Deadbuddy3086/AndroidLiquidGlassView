@@ -39,6 +39,7 @@ public class LiquidGlassView extends FrameLayout {
     private final Context context;
     private float cornerRadius = Utils.dp2px(getResources(), 40), refractionHeight = Utils.dp2px(getResources(), 20), refractionOffset = -Utils.dp2px(getResources(), 70), tintAlpha = 0.0f, tintColorRed = 1.0f, tintColorGreen = 1.0f, tintColorBlue = 1.0f, blurRadius = 0.01f, dispersion = 0.5f, downX, downY, startTx, startTy;
     private boolean draggable = true;
+    private Config config;
 
     public LiquidGlassView(Context context) {
         super(context);
@@ -256,17 +257,17 @@ public class LiquidGlassView extends FrameLayout {
         if (w <= 0) w = Utils.getDeviceWidthPx(context);
         if (h <= 0) h = getResources().getDisplayMetrics().heightPixels;
 
-        Config.CORNER_RADIUS_PX = cornerRadius;
-        Config.REFRACTION_HEIGHT = refractionHeight;
-        Config.REFRACTION_OFFSET = refractionOffset;
-        Config.BLUR_RADIUS = blurRadius;
-        Config.WIDTH = w;
-        Config.HEIGHT = h;
-        Config.DISPERSION = dispersion;
-        Config.TINT_ALPHA = tintAlpha;
-        Config.TINT_COLOR_BLUE = tintColorBlue;
-        Config.TINT_COLOR_GREEN = tintColorGreen;
-        Config.TINT_COLOR_RED = tintColorRed;
+        config.CORNER_RADIUS_PX = cornerRadius;
+        config.REFRACTION_HEIGHT = refractionHeight;
+        config.REFRACTION_OFFSET = refractionOffset;
+        config.BLUR_RADIUS = blurRadius;
+        config.WIDTH = w;
+        config.HEIGHT = h;
+        config.DISPERSION = dispersion;
+        config.TINT_ALPHA = tintAlpha;
+        config.TINT_COLOR_BLUE = tintColorBlue;
+        config.TINT_COLOR_GREEN = tintColorGreen;
+        config.TINT_COLOR_RED = tintColorRed;
 
         glass.post(() -> glass.updateParameters());
     }
@@ -306,7 +307,8 @@ public class LiquidGlassView extends FrameLayout {
         if (w <= 0) w = Utils.getDeviceWidthPx(context);
         if (h <= 0) h = getResources().getDisplayMetrics().heightPixels;
 
-        Config.configure(new Config.Overrides()
+        config = new Config();
+        config.configure(new Config.Overrides()
                 .noFilter()
                 .contrast(0f)
                 .whitePoint(0f)
@@ -323,7 +325,7 @@ public class LiquidGlassView extends FrameLayout {
                 .size(w, h)
         );
 
-        glass = new LiquidGlass(getContext());
+        glass = new LiquidGlass(getContext(), config);
 
         LayoutParams lp = new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
