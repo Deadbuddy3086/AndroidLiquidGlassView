@@ -84,7 +84,7 @@ public class LiquidGlassView extends FrameLayout {
      */
     @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
     public void setCornerRadiusDp(float dp) {
-        setCornerRadius(Utils.dp2px(getResources(), Math.max(0, Math.min(dp, 99))));
+        setCornerRadius(Utils.dp2px(getResources(), Math.max(0, dp)));
         updateConfig();
     }
 
@@ -93,7 +93,7 @@ public class LiquidGlassView extends FrameLayout {
      */
     @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
     public void setCornerRadiusPx(float px) {
-        float maxPx = Utils.dp2px(getResources(), 99);
+        float maxPx = getHeight() > 0 ? getHeight() / 2f : Utils.dp2px(getResources(), 99);
         this.cornerRadius = Math.max(0, Math.min(px, maxPx));
         updateConfig();
     }
@@ -104,7 +104,7 @@ public class LiquidGlassView extends FrameLayout {
      * @param px float
      */
     public void setCornerRadius(float px) {
-        float maxPx = Utils.dp2px(getResources(), 99);
+        float maxPx = getHeight() > 0 ? getHeight() / 2f : Utils.dp2px(getResources(), 99);
         this.cornerRadius = Math.max(0, Math.min(px, maxPx));
         updateConfig();
     }
@@ -289,6 +289,10 @@ public class LiquidGlassView extends FrameLayout {
         super.onSizeChanged(w, h, oldw, oldh);
         if (w != oldw || h != oldh) {
             if (w > 0 && h > 0) {
+                float maxPx = h / 2f;
+                if (cornerRadius > maxPx) {
+                    cornerRadius = maxPx;
+                }
                 rebuild();
             }
         }
