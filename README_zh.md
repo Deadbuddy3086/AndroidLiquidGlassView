@@ -53,7 +53,7 @@
 **将以下依赖项添加到模块的`build.gradle`中:**
 ```gradle
 dependencies {
-   implementation 'com.qmdeve:AndroidLiquidGlassView:1.0.0-alpha07'
+   implementation 'com.qmdeve:AndroidLiquidGlassView:1.0.0-alpha08'
 }
 ```
 
