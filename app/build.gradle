@@ -8,10 +8,10 @@ android {
 
     defaultConfig {
         applicationId "com.qmdeve.liquidglass.demo"
-        minSdkVersion 26
+        minSdkVersion 24
         targetSdkVersion 36
         versionCode 1
-        versionName "1.0.0-alpha07"
+        versionName "1.0.0-alpha08"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
