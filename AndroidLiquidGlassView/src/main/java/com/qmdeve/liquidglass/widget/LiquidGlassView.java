@@ -30,6 +30,7 @@ import androidx.annotation.Nullable;
 
 import com.qmdeve.liquidglass.LiquidGlass;
 import com.qmdeve.liquidglass.Config;
+import com.qmdeve.liquidglass.util.LiquidTracker;
 import com.qmdeve.liquidglass.util.Utils;
 
 public class LiquidGlassView extends FrameLayout {
@@ -40,6 +41,7 @@ public class LiquidGlassView extends FrameLayout {
     private float cornerRadius = Utils.dp2px(getResources(), 40), refractionHeight = Utils.dp2px(getResources(), 20), refractionOffset = -Utils.dp2px(getResources(), 70), tintAlpha = 0.0f, tintColorRed = 1.0f, tintColorGreen = 1.0f, tintColorBlue = 1.0f, blurRadius = 0.01f, dispersion = 0.5f, downX, downY, startTx, startTy;
     private boolean draggable = true;
     private Config config;
+    private LiquidTracker liquidTracker;
 
     public LiquidGlassView(Context context) {
         super(context);
@@ -65,6 +67,7 @@ public class LiquidGlassView extends FrameLayout {
     private void init() {
         setClipToPadding(false);
         setClipChildren(false);
+        liquidTracker = new LiquidTracker(this);
     }
 
     /**
@@ -244,6 +247,9 @@ public class LiquidGlassView extends FrameLayout {
      */
     public void setDraggable(boolean enable) {
         this.draggable = enable;
+        if (!enable) {
+            liquidTracker.recycle();
+        }
     }
 
     private void updateConfig() {
@@ -356,6 +362,7 @@ public class LiquidGlassView extends FrameLayout {
     @Override
     public boolean onTouchEvent(android.view.MotionEvent e) {
         if (!draggable) return super.onTouchEvent(e);
+        liquidTracker.applyMovement(e);
         switch (e.getActionMasked()) {
             case android.view.MotionEvent.ACTION_DOWN:
                 downX = e.getRawX();

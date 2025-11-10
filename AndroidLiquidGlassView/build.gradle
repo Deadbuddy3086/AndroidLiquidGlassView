@@ -28,4 +28,5 @@ android {
 
 dependencies {
     implementation libs.annotation.jvm
+    implementation libs.dynamicanimation
 }
