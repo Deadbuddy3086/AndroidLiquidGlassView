@@ -48,7 +48,7 @@ public class LiquidTracker {
                 liquidHandler.removeCallbacksAndMessages(null);
                 liquidHandler.postDelayed(() -> {
                     animateToFinalPosition(1f, 1f);
-				}, 200);
+                }, 200);
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
