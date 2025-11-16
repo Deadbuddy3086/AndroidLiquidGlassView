@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://socialify.git.ci/QmDeve/AndroidLiquidGlassView/image?description=1&font=Inter&name=1&owner=1&pattern=Floating+Cogs&theme=Light" alt="GitHub" width="100%"/>
+
 ## AndroidLiquidGlassView
 **Android 仿 iOS 26 液态玻璃效果，AndroidLiquidGlassView 库具有真实的折射和色散效果**
 
@@ -83,7 +85,7 @@
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=QmDeve/AndroidLiquidGlassView&type=date&legend=bottom-right)](https://www.star-history.com/#QmDeve/AndroidLiquidGlassView&type=date&legend=bottom-right)
+[![Star History Chart](https://starchart.cc/QmDeve/AndroidLiquidGlassView.svg)](https://starchart.cc/QmDeve/AndroidLiquidGlassView.svg)
 
 ## 贡献者
 

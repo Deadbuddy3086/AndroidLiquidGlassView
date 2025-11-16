@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://socialify.git.ci/QmDeve/AndroidLiquidGlassView/image?description=1&font=Inter&name=1&owner=1&pattern=Floating+Cogs&theme=Light" alt="GitHub" width="100%"/>
+
 ## AndroidLiquidGlassView
 **Android imitation of iOS 26 liquid glass effect, AndroidLiquidGlassView library has real refraction and dispersion effect**
 
@@ -84,7 +86,7 @@ English | [简体中文](https://github.com/QmDeve/AndroidLiquidGlassView/blob/m
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=QmDeve/AndroidLiquidGlassView&type=date&legend=bottom-right)](https://www.star-history.com/#QmDeve/AndroidLiquidGlassView&type=date&legend=bottom-right)
+[![Star History Chart](https://starchart.cc/QmDeve/AndroidLiquidGlassView.svg)](https://starchart.cc/QmDeve/AndroidLiquidGlassView.svg)
 
 ## Contributors
 
