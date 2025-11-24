@@ -26,7 +26,7 @@ English | [简体中文](./README_zh.md)
 
 ---
 
-> **Note: Mirror Repository**
+> **Note: Repository**
 >
 > This project is maintained on multiple platforms to facilitate developers in different regions. The content of all warehouses should be consistent
 > - **Main Repository**：[GitHub](https://github.com/QmDeve/AndroidLiquidGlassView)
@@ -64,6 +64,8 @@ dependencies {
 
 ## Quick use
 **Usage: [https://glass.docs.qmdeve.com/](https://glass.docs.qmdeve.com/)**
+
+---
 
 ## Effect explaination
 **On `Android 13` and later devices, the library renders the full `Liquid Glass` effect, including:**

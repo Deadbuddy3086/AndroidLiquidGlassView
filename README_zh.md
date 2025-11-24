@@ -28,7 +28,7 @@
 
 ---
 
-> **Note: 镜像存储库**
+> **Note: 存储库**
 >
 > 该项目在多个平台上维护，以方便不同地区的开发人员使用。所有仓库的内容都应保持一致
 > - **主存储库**：[GitHub](https://github.com/QmDeve/AndroidLiquidGlassView)
@@ -68,6 +68,8 @@ dependencies {
 
 ## 如何使用
 **请查看文档：[https://glass.docs.qmdeve.com/](https://glass.docs.qmdeve.com/zh/)**
+
+---
 
 ## 效果说明
 **在`Android 13`及更高版本的设备上，将渲染完整的`液化玻璃`效果，包括：**
