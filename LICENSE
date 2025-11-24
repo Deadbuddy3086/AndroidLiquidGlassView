@@ -1,16 +1,49 @@
 QmDeve License
 Version 1.0, November 2025
 
-Copyright (c) 2025 <Name>
+Copyright ©️ 2025 QmDeve
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal 
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, and to permit persons to 
+whom the Software is furnished to do so, subject to the following conditions:
 
-1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+1. The above copyright notice and this permission notice shall be included 
+   in all copies or substantial portions of the Software.
 
-2. The name of the copyright holder or its contributors shall not be used to endorse or promote products derived from this software without specific prior written permission.
+2. The name of the copyright holder or its contributors shall not be used 
+   to endorse or promote products derived from this software without specific 
+   prior written permission.
 
-Contributor Grant: By submitting contributions to the Software, you grant the copyright holder and users of the Software a perpetual, worldwide, non-exclusive, royalty-free, irrevocable copyright license to reproduce, prepare derivative works of, publicly display, publicly perform, sublicense, and distribute your contributions and such derivative works.
+Contributor Grant:
+By submitting contributions to the Software, you grant the copyright holder 
+and users of the Software a perpetual, worldwide, non-exclusive, royalty-free, 
+irrevocable copyright license to reproduce, prepare derivative works of, 
+publicly display, publicly perform, sublicense, and distribute your 
+contributions and such derivative works.
 
-Patent Grant: The copyright holder and each contributor hereby grants to you a perpetual, worldwide, non-exclusive, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Software, where such license applies only to those patent claims licensable by such copyright holder or contributor that are necessarily infringed by their contribution(s) alone or by combination of their contribution(s) with the Software to which such contribution(s) was submitted. If you institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Software or a contribution incorporated within the Software constitutes direct or contributory patent infringement, then any patent licenses granted to you under this license for the Software shall terminate as of the date such litigation is filed.
+Patent Grant:
+The copyright holder and each contributor hereby grants to you a perpetual, 
+worldwide, non-exclusive, royalty-free, irrevocable (except as stated in this 
+section) patent license to make, have made, use, offer to sell, sell, import, 
+and otherwise transfer the Software, where such license applies only to those 
+patent claims licensable by such copyright holder or contributor that are 
+necessarily infringed by their contribution(s) alone or by combination of 
+their contribution(s) with the Software to which such contribution(s) was 
+submitted.
 
-Disclaimer of Warranty: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+If you institute patent litigation against any entity (including a cross-claim 
+or counterclaim in a lawsuit) alleging that the Software or a contribution 
+incorporated within the Software constitutes direct or contributory patent 
+infringement, then any patent licenses granted to you under this license for 
+the Software shall terminate as of the date such litigation is filed.
+
+Disclaimer of Warranty:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
