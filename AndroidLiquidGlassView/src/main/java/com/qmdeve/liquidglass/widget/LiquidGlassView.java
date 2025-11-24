@@ -30,9 +30,10 @@ import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.qmdeve.liquidglass.LiquidGlass;
@@ -40,7 +41,7 @@ import com.qmdeve.liquidglass.Config;
 import com.qmdeve.liquidglass.util.LiquidTracker;
 import com.qmdeve.liquidglass.util.Utils;
 
-public class LiquidGlassView extends FrameLayout {
+public class LiquidGlassView extends ViewGroup {
 
     private LiquidGlass glass;
     private ViewGroup customSource;
@@ -51,7 +52,7 @@ public class LiquidGlassView extends FrameLayout {
     private boolean touchEffectEnabled = false;
     private Config config;
     private LiquidTracker liquidTracker;
-    
+
     // Glow effect variables
     private Paint glowPaint;
     private float glowX, glowY;
@@ -82,30 +83,55 @@ public class LiquidGlassView extends FrameLayout {
         setClipToPadding(false);
         setClipChildren(false);
         liquidTracker = new LiquidTracker(this);
-        
+
         glowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         glowPaint.setStyle(Paint.Style.FILL);
     }
 
     @Override
-    protected void dispatchDraw(Canvas canvas) {
+    protected void dispatchDraw(@NonNull Canvas canvas) {
         super.dispatchDraw(canvas);
         if (touchEffectEnabled && isTouching) {
             Path path = new Path();
             RectF rect = new RectF(0, 0, getWidth(), getHeight());
             path.addRoundRect(rect, cornerRadius, cornerRadius, Path.Direction.CW);
-            
+
             canvas.save();
             canvas.clipPath(path);
-            
+
             float radius = Math.max(getWidth(), getHeight()) * 0.8f;
             int[] colors = {Color.argb(60, 255, 255, 255), Color.TRANSPARENT};
             float[] stops = {0f, 1f};
             RadialGradient gradient = new RadialGradient(glowX, glowY, radius, colors, stops, Shader.TileMode.CLAMP);
             glowPaint.setShader(gradient);
             canvas.drawRect(rect, glowPaint);
-            
+
             canvas.restore();
+        }
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        // Layout all child views
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+            if (child.getVisibility() != GONE) {
+                // Layout children to fill the entire view
+                child.layout(0, 0, getWidth(), getHeight());
+            }
+        }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        // Measure all child views
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+            if (child.getVisibility() != GONE) {
+                measureChild(child, widthMeasureSpec, heightMeasureSpec);
+            }
         }
     }
 
@@ -122,25 +148,6 @@ public class LiquidGlassView extends FrameLayout {
     }
 
     /**
-     * @Deprecated Please use the {@link #setCornerRadius} method
-     */
-    @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
-    public void setCornerRadiusDp(float dp) {
-        setCornerRadius(Utils.dp2px(getResources(), Math.max(0, dp)));
-        updateConfig();
-    }
-
-    /**
-     * @Deprecated Please use the {@link #setCornerRadius} method
-     */
-    @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
-    public void setCornerRadiusPx(float px) {
-        float maxPx = getHeight() > 0 ? getHeight() / 2f : Utils.dp2px(getResources(), 99);
-        this.cornerRadius = Math.max(0, Math.min(px, maxPx));
-        updateConfig();
-    }
-
-    /**
      * Set the corner radius px
      *
      * @param px float
@@ -148,26 +155,6 @@ public class LiquidGlassView extends FrameLayout {
     public void setCornerRadius(float px) {
         float maxPx = getHeight() > 0 ? getHeight() / 2f : Utils.dp2px(getResources(), 99);
         this.cornerRadius = Math.max(0, Math.min(px, maxPx));
-        updateConfig();
-    }
-
-    /**
-     * @Deprecated Please use the {@link #setRefractionHeight} method
-     */
-    @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
-    public void setRefractionHeightDp(float dp) {
-        setRefractionHeight(Utils.dp2px(getResources(), dp));
-        updateConfig();
-    }
-
-    /**
-     * @Deprecated Please use the {@link #setRefractionHeight} method
-     */
-    @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
-    public void setRefractionHeightPx(float px) {
-        float minPx = Utils.dp2px(getResources(), 12);
-        float maxPx = Utils.dp2px(getResources(), 50);
-        this.refractionHeight = Math.max(minPx, Math.min(maxPx, px));
         updateConfig();
     }
 
@@ -180,28 +167,6 @@ public class LiquidGlassView extends FrameLayout {
         float minPx = Utils.dp2px(getResources(), 12);
         float maxPx = Utils.dp2px(getResources(), 50);
         this.refractionHeight = Math.max(minPx, Math.min(maxPx, px));
-        updateConfig();
-    }
-
-
-    /**
-     * @Deprecated {@link #setRefractionOffset}
-     */
-    @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
-    public void setRefractionOffsetDp(float dp) {
-        setRefractionOffset(Utils.dp2px(getResources(), dp));
-        updateConfig();
-    }
-
-    /**
-     * @Deprecated Please use the {@link #setRefractionOffset}
-     */
-    @Deprecated(since = "v0.0.1-alpha02", forRemoval = true)
-    public void setRefractionOffsetPx(float px) {
-        float minPx = Utils.dp2px(getResources(), 20);
-        float maxPx = Utils.dp2px(getResources(), 120);
-        px = Math.max(minPx, Math.min(maxPx, px));
-        this.refractionOffset = -px;
         updateConfig();
     }
 
@@ -277,17 +242,6 @@ public class LiquidGlassView extends FrameLayout {
     public void setBlurRadius(float radius) {
         this.blurRadius = Math.max(0.01f, Math.min(50, radius));
         updateConfig();
-    }
-
-    /**
-     * @Deprecated Please use the {@link #setDraggableEnabled}
-     */
-    @Deprecated(since = "v1.0.0-alpha10", forRemoval = true)
-    public void setDraggable(boolean enable) {
-        this.draggableEnabled = enable;
-        if (!enable) {
-            liquidTracker.recycle();
-        }
     }
 
     /**
@@ -407,8 +361,8 @@ public class LiquidGlassView extends FrameLayout {
         glass = new LiquidGlass(getContext(), config);
 
         LayoutParams lp = new LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT
         );
         addView(glass, lp);
 
@@ -421,8 +375,7 @@ public class LiquidGlassView extends FrameLayout {
 
     private void removeGlass() {
         if (glass != null) {
-            ViewGroup p = (ViewGroup) glass.getParent();
-            if (p != null) p.removeView(glass);
+            removeView(glass);
             glass = null;
         }
     }
@@ -438,7 +391,7 @@ public class LiquidGlassView extends FrameLayout {
                 if (touchEffectEnabled) {
                     isTouching = true;
                     liquidTracker.animateScale(1.02f);
-                    
+
                     glowX = e.getX();
                     glowY = e.getY();
                     invalidate();
@@ -458,7 +411,7 @@ public class LiquidGlassView extends FrameLayout {
                     glowY = e.getY();
                     invalidate();
                 }
-                
+
                 if (draggableEnabled) {
                     float dx = e.getRawX() - downX;
                     float dy = e.getRawY() - downY;
@@ -496,7 +449,7 @@ public class LiquidGlassView extends FrameLayout {
                 if (draggableEnabled) return true;
                 break;
         }
-        
+
         boolean superResult = super.onTouchEvent(e);
         return touchEffectEnabled || superResult;
     }
